@@ -1,0 +1,46 @@
+{{#if @blog.navigation}}
+    {{navigation}}
+{{/if}}
+
+<div class="title-section">
+    <div class="bg-image master"
+         style="background-image: url({{#if @blog.cover_image }}{{@blog.cover_image}}{{else}}{{asset
+                 "images/bg.jpg"}}{{/if}});"></div>
+
+    <div class="bg-shader master"></div>
+    <div class="section-inner">
+        <div class="toggle-container">
+            <!--TODO: i18n-->
+            <a class="nav-toggle" title="Click to view the navigation" href="#">
+                <div class="bars">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="clear"></div>
+                </div>
+                <p>
+                    <span class="menu">Menu</span>
+                    <span class="close">Close</span>
+                </p>
+
+                <div class="clear"></div>
+            </a>
+        </div><!-- .toggle-container -->
+        {{#if @blog.logo}}
+            <div class="blog-logo">
+                <a class="logo" href="{{@blog.url}}" title="{{@blog.title}} - {{@blog.description}}" rel="home">
+                    <img src="{{@blog.logo}}" alt="{{@blog.title}}">
+                </a>
+            </div>
+        {{else}}
+            <h1 class="blog-title">
+                <a href="{{@blog.url}}"
+                   title="{{@blog.title}} - {{@blog.description}}" rel="home">
+                    {{@blog.title}}</a>
+            </h1>
+            {{#if @blog.description}}
+                <h3 class="blog-subtitle">{{@blog.description}}</h3>
+            {{/if}}
+        {{/if}}
+    </div>
+</div>

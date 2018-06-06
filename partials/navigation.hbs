@@ -1,0 +1,53 @@
+<div class="navigation">
+    <div class="section-inner">
+        <ul class="main-menu">
+            <!-- Loop through the navigation items -->
+            {{#foreach navigation}}
+                <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a
+                        href="{{url absolute="true"}}">{{label}}</a></li>
+            {{/foreach}}
+            <!-- End the loop -->
+        </ul><!-- .main-menu -->
+        <div class="menu-social">
+            <!--//TODO: use facebook and twitter options-->
+            <ul id="menu-social-items" class="menu-items">
+                {{#if @blog.facebook}}
+                    <li>
+                        <a href="{{facebook_url @blog.facebook}}" target="_blank" rel="noopener"><span
+                                class="screen-reader-text">Facebook</span></a>
+                    </li>
+                {{/if}}
+                {{#if @blog.twitter}}
+                    <li>
+                        <a href="{{twitter_url @blog.twitter}}" target="_blank"
+                           rel="noopener"><span class="screen-reader-text">Twitter</span></a>
+                    </li>
+                {{/if}}
+                <li><a
+                        href="http://www.instagram.com/andersnoren1"><span
+                        class="screen-reader-text">Instagram</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div><!-- .section-inner -->
+
+    <div class="mobile-menu-container">
+        <ul class="mobile-menu">
+            {{#foreach navigation}}
+                <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a
+                        href="{{url absolute="true"}}">{{label}}</a></li>
+            {{/foreach}}
+            <!--<?php -->
+            <!--if ( has_nav_menu( 'primary' ) ) {					-->
+            <!--wp_nav_menu( $nav_menu_args); -->
+            <!--} else {-->
+            <!--wp_list_pages( $list_pages_args );-->
+            <!--} ?>-->
+
+        </ul><!-- .mobile-menu -->
+        <div>mobile social block</div>
+        <!--<?php get_template_part( 'menu', 'social' ); ?>-->
+    </div><!-- .mobile-menu-container -->
+
+</div><!-- .navigation -->
