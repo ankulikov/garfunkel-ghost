@@ -749,10 +749,10 @@ a .post-icon img {
 }
 
 
-/*  Sticky post  ----------------------------------------- */
+/*  Featured (sticky) post  ----------------------------------------- */
 
 
-.post.sticky .is-sticky {
+.post.featured .is-sticky {
 	display: block;
 	width: 32px;
 	height: 32px;
@@ -763,13 +763,13 @@ a .post-icon img {
 	right: 16px;
 }
 
-.post.sticky .is-sticky .genericon {
+.post.featured .is-sticky .genericon {
 	margin: 8px 0 0 8px;
 	color: #fff;
 }
 
-.post.sticky .is-sticky:before,
-.post.sticky .is-sticky:after {
+.post.featured .is-sticky:before,
+.post.featured .is-sticky:after {
 	content: "";
 	display: block;
 	border: 8px solid transparent;
@@ -777,13 +777,13 @@ a .post-icon img {
 	bottom: -16px;
 }
 
-.post.sticky .is-sticky:before {
+.post.featured .is-sticky:before {
 	left: 0px;
 	border-top-color: #ca2017;
 	border-left-color: #ca2017;
 }
 
-.post.sticky .is-sticky:after {
+.post.featured .is-sticky:after {
 	right: 0px;
 	border-top-color: #ca2017;
 	border-right-color: #ca2017;
@@ -842,6 +842,10 @@ a .post-icon img {
 
 /*  Post inner  ----------------------------------------- */
 
+.post-card-tags {
+	text-transform: uppercase;
+	font-size: 0.8em;
+}
 
 .post-title {
 	font-size: 1.6em;

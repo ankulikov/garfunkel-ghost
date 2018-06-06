@@ -14,9 +14,13 @@
 
     {{!-- Styles'n'Scripts --}}
     <!--//TODO: replace with built version-->
-    <link rel='stylesheet' id='garfunkel_googleFonts-css'  href='//fonts.googleapis.com/css?family=Fira+Sans%3A400%2C500%2C700%2C400italic%2C700italic%7CPlayfair+Display%3A400%2C900%7CCrimson+Text%3A700%2C400italic%2C700italic%2C400&#038;ver=4.9.6' type='text/css' media='all' />
-    <link rel='stylesheet' id='garfunkel_genericons-css'  href='http://andersnoren.se/themes/garfunkel/wp-content/themes/garfunkel/genericons/genericons.css?ver=4.9.6' type='text/css' media='all' />
+    <link rel='stylesheet' id='garfunkel_googleFonts-css'
+          href='//fonts.googleapis.com/css?family=Fira+Sans%3A400%2C500%2C700%2C400italic%2C700italic%7CPlayfair+Display%3A400%2C900%7CCrimson+Text%3A700%2C400italic%2C700italic%2C400&#038;ver=4.9.6'
+          type='text/css' media='all'/>
+    <link rel='stylesheet' id='garfunkel_genericons-css' href='{{asset "genericons/genericons.css"}}'
+          type='text/css' media='all'/>
     <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}"/>
+    <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
     <script
             src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -35,12 +39,17 @@
 <!--<script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>-->
 <!--TODO: use CDN for scripts -->
 <script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201823'></script>
-<script type='text/javascript' src='http://andersnoren.se/themes/garfunkel/wp-content/themes/garfunkel/js/imagesloaded.pkgd.js?ver=4.9.6'></script>
-<script type='text/javascript' src='http://andersnoren.se/themes/garfunkel/wp-includes/js/imagesloaded.min.js?ver=3.2.0'></script>
-<script type='text/javascript' src='http://andersnoren.se/themes/garfunkel/wp-includes/js/masonry.min.js?ver=3.3.2'></script>
-<script type='text/javascript' src='http://andersnoren.se/themes/garfunkel/wp-content/themes/garfunkel/js/flexslider.min.js?ver=4.9.6'></script>
+<script type='text/javascript'
+        src='http://andersnoren.se/themes/garfunkel/wp-content/themes/garfunkel/js/imagesloaded.pkgd.js?ver=4.9.6'></script>
+<script type='text/javascript'
+        src='http://andersnoren.se/themes/garfunkel/wp-includes/js/imagesloaded.min.js?ver=3.2.0'></script>
+<script type='text/javascript'
+        src='http://andersnoren.se/themes/garfunkel/wp-includes/js/masonry.min.js?ver=3.3.2'></script>
+<script type='text/javascript'
+        src='http://andersnoren.se/themes/garfunkel/wp-content/themes/garfunkel/js/flexslider.min.js?ver=4.9.6'></script>
 <script type="application/javascript" src="{{asset "js/global.js"}} "></script>
-<script type='text/javascript' src='http://andersnoren.se/themes/garfunkel/wp-includes/js/comment-reply.min.js?ver=4.9.6'></script>
+<script type='text/javascript'
+        src='http://andersnoren.se/themes/garfunkel/wp-includes/js/comment-reply.min.js?ver=4.9.6'></script>
 
 {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
 {{{block "scripts"}}}

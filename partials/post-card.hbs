@@ -1,43 +1,39 @@
-<article class="post-card {{post_class}}{{#unless feature_image}} no-image{{/unless}}">
-    {{#if feature_image}}
-        <a class="post-card-image-link" href="{{url}}">
-            <div class="post-card-image" style="background-image: url({{feature_image}})"></div>
-        </a>
-    {{/if}}
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="{{url}}">
-            <header class="post-card-header">
-                {{#if primary_tag}}
-                    <span class="post-card-tags">{{primary_tag.name}}</span>
-                {{/if}}
-                <h2 class="post-card-title">{{title}}</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>{{excerpt words="33"}}</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
+<div class="post-container">
+    <div id="post-{{id}}" class="{{post_class}}">
+        {{#if feature_image}}
+            <div class="featured-media">
+                <a href="{{url}}" rel="bookmark" title="{{title}}">
+                    <img src="{{img_url feature_image}}">
+                </a>
 
-            <ul class="author-list">
-                {{#foreach authors}}
-                    <li class="author-list-item">
+            </div><!-- .featured-media -->
+        {{/if}}
 
-                        <div class="author-name-tooltip">
-                            {{name}}
-                        </div>
+        {{#if featured}}
+            <div class="is-sticky">
+                <div class="genericon genericon-pinned"></div>
+            </div>
+        {{/if}}
+        <div class="post-inner">
+            {{#if title}}
+                <div class="post-header">
+                    {{#if primary_tag}}
+                        <span class="post-card-tags">{{primary_tag.name}}</span>
+                    {{/if}}
+                    <h2 class="post-title"><a href="{{url}}" rel="bookmark"
+                                              title="{{title}}">{{title}}</a></h2>
+                </div><!-- .post-header -->
+            {{/if}}
 
-                        {{#if profile_image}}
-                            <a href="{{url}}" class="static-avatar"><img class="author-profile-image"
-                                                                         src="{{profile_image}}" alt="{{name}}"/></a>
-                        {{else}}
-                            <a href="{{url}}" class="static-avatar author-profile-image">{{> "icons/avatar"}}</a>
-                        {{/if}}
-                    </li>
-                {{/foreach}}
-            </ul>
-
-            <span class="reading-time">{{reading_time}}</span>
-
-        </footer>
+            <p class="post-excerpt">{{excerpt characters="200"}}...</p>
+            <div class="post-meta">
+                <a class="post-meta-date" href="{{url}}" title="{{title}}">
+                    <div class="genericon genericon-time"></div>
+                    {{date published_at format="MMMM DD, YYYY"}}</a>
+                <a class="post-meta-comments" href="{{url}}/#comments" title="Comments to {{title}}">
+                    <div class="genericon genericon-comment"></div></a>
+                <div class="clear"></div>
+            </div>
+        </div><!-- .post-inner -->
     </div>
-</article>
+</div>

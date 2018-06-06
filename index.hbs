@@ -8,9 +8,9 @@ into the {body} of the default.hbs template --}}
     <div class="wrapper-inner section-inner">
 
         <!--<?php-->
-		<!--$paged = get_query_var( 'paged' ) ?: 1;-->
-		<!--$total_post_count = wp_count_posts();-->
-		<!--$published_post_count = $total_post_count->publish;-->
+        <!--$paged = get_query_var( 'paged' ) ?: 1;-->
+        <!--$total_post_count = wp_count_posts();-->
+        <!--$published_post_count = $total_post_count->publish;-->
         <!--$total_pages = ceil( $published_post_count / $posts_per_page );-->
 
         <!--if ( 1 < $paged ) : ?>-->
@@ -25,18 +25,16 @@ into the {body} of the default.hbs template --}}
 
 
         <div class="content">
+            {{#if posts}}
 
-
-            <div class="posts" id="posts">
-                {{#foreach posts}}
-                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                    {{> "post-card"}}
-
-                {{/foreach}}
-                <div class="clear"></div>
-
-            </div><!-- .posts -->
-
+                <div class="posts" id="posts">
+                    {{#foreach posts}}
+                    {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                        {{> "post-card"}}
+                    {{/foreach}}
+                    <div class="clear"></div>
+                </div><!-- .posts -->
+            {{/if}}
         </div><!-- .content -->
 
         <!--<?php if ( $wp_query->max_num_pages > 1 ) : ?>-->
@@ -44,11 +42,11 @@ into the {body} of the default.hbs template --}}
         {{pagination}}
         <!--<div class="archive-nav section-inner">-->
 
-            <!--<?php echo get_next_posts_link( '&larr; ' . __( 'Older posts', 'garfunkel' ) ); ?>-->
+        <!--<?php echo get_next_posts_link( '&larr; ' . __( 'Older posts', 'garfunkel' ) ); ?>-->
 
-            <!--<?php echo get_previous_posts_link( __( 'Newer posts', 'garfunkel' ) . ' &rarr;' ); ?>-->
+        <!--<?php echo get_previous_posts_link( __( 'Newer posts', 'garfunkel' ) . ' &rarr;' ); ?>-->
 
-            <!--<div class="clear"></div>-->
+        <!--<div class="clear"></div>-->
 
         <!--</div>&lt;!&ndash; .archive-nav &ndash;&gt;-->
 
