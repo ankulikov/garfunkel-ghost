@@ -14,10 +14,11 @@
                     {{#if feature_image}}
                         <div class="featured-media">
                             <!--<a href="{{url}}" rel="bookmark" title="{{title}}">-->
-                                <img src="{{img_url feature_image}}">
+                            <img src="{{img_url feature_image}}">
                             <!--</a>-->
                             <div class="media-caption-container">
-                                <p class="media-caption">{{title}}</p>
+                                <p class="media-caption" id="media-caption-element">
+                                    <!--fill this value with script--></p>
                             </div>
 
                         </div><!-- .featured-media -->
@@ -25,21 +26,21 @@
 
                     <!--<div class="featured-media">-->
 
-                        <!--<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">-->
+                    <!--<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">-->
 
-                            <!--<?php the_post_thumbnail( 'post-image' ); ?>-->
+                    <!--<?php the_post_thumbnail( 'post-image' ); ?>-->
 
-                            <!--<?php if ( ! empty( get_post( get_post_thumbnail_id() )->post_excerpt ) ) : ?>-->
+                    <!--<?php if ( ! empty( get_post( get_post_thumbnail_id() )->post_excerpt ) ) : ?>-->
 
-                            <!--<div class="media-caption-container">-->
+                    <!--<div class="media-caption-container">-->
 
-                                <!--<p class="media-caption"><?php echo get_post( get_post_thumbnail_id() )->post_excerpt; ?></p>-->
+                    <!--<p class="media-caption"><?php echo get_post( get_post_thumbnail_id() )->post_excerpt; ?></p>-->
 
-                            <!--</div>-->
+                    <!--</div>-->
 
-                            <!--<?php endif; ?>-->
+                    <!--<?php endif; ?>-->
 
-                        <!--</a>-->
+                    <!--</a>-->
 
                     <!--</div>&lt;!&ndash; .featured-media &ndash;&gt;-->
 
@@ -60,41 +61,52 @@
                             <!--<?php the_content(); ?>-->
                             <!--<?php edit_post_link( __( 'Edit', 'garfunkel' ) . ' &rarr;', '<div class="clear"></div>'); ?>-->
 
-                    </div><!-- .post-content -->
+                        </div><!-- .post-content -->
 
-                    <div class="clear"></div>
+                        <div class="clear"></div>
 
-                </div><!-- .post-inner -->
+                    </div><!-- .post-inner -->
 
-                <?php if ( comments_open() ) : ?>
+                    <!--<?php if ( comments_open() ) : ?>-->
 
-                <div class="comments-page-container">
+                    <div class="comments-page-container">
 
-                    <div class="comments-page-container-inner">
+                        <div class="comments-page-container-inner">
 
-                        <!--<?php comments_template( '', true ); ?>-->
+                            <!--<?php comments_template( '', true ); ?>-->
 
-                    </div><!-- .comments-page-container-inner -->
+                        </div><!-- .comments-page-container-inner -->
 
-                </div><!-- .comments-page-container -->
+                    </div><!-- .comments-page-container -->
+
+                    <!--<?php endif; ?>-->
+
+                    <!--<?php get_sidebar(); ?>-->
+
+                </div><!-- .post -->
+
+                <!--<?php endwhile; else: ?>-->
+
+                <!--<p><?php _e( "We couldn't find any posts that matched your query. Please try again.", "garfunkel" ); ?></p>-->
 
                 <!--<?php endif; ?>-->
 
-                <!--<?php get_sidebar(); ?>-->
+                <div class="clear"></div>
 
-            </div><!-- .post -->
+            </div><!-- .content -->
 
-            <!--<?php endwhile; else: ?>-->
-
-            <!--<p><?php _e( "We couldn't find any posts that matched your query. Please try again.", "garfunkel" ); ?></p>-->
-
-            <!--<?php endif; ?>-->
-
-            <div class="clear"></div>
-
-        </div><!-- .content -->
-
-    </div><!-- .section-inner -->
+        </div><!-- .section-inner -->
 
     </div><!-- .wrapper -->
+
+
 {{/post}}
+
+{{#contentFor "scripts"}}
+        <script>
+            var postCoverCaptionRef = $("#post-cover-caption");
+            if (postCoverCaptionRef.length) {
+                $("#media-caption-element").text(postCoverCaptionRef.text())
+            }
+        </script>
+{{/contentFor}}
