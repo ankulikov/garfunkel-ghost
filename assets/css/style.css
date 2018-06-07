@@ -1033,7 +1033,7 @@ a .post-icon img {
 
 
 /* -------------------------------------------------------------------------------- */
-/*	7. Single post
+/*	7. Single post (regular post template)
 /* -------------------------------------------------------------------------------- */
 
 
@@ -1043,18 +1043,18 @@ a .post-icon img {
 /* format quote */
 
 
-.single-post .post-quote .inner {
+.post-template .post-quote .inner {
 	width: 700px;
 	max-width: 100%;
 	margin: 0 auto;
 }
 
-.single-post .post-quote blockquote {
+.post-template .post-quote blockquote {
 	font-size: 2em; 
 	line-height: 150%;
 }
 
-.single-post .post-quote cite {
+.post-template .post-quote cite {
 	margin-top: 40px;
 	font-size: 16px;
 }
@@ -1063,51 +1063,51 @@ a .post-icon img {
 /* format link */
 
 
-.single-post .post-link .inner {
+.post-template .post-link .inner {
 	width: 700px;
 	max-width: 100%;
 	margin: 0 auto;
 }
 
-.single-post .post-link p { font-size: 2em; }
+.post-template .post-link p { font-size: 2em; }
 
 
 /* format gallery */
 
 
-.single-post .flex-direction-nav { margin-top: -45px; }
-.single-post .flex-direction-nav a { height: 90px; }
+.post-template .flex-direction-nav { margin-top: -45px; }
+.post-template .flex-direction-nav a { height: 90px; }
 
 
 /* Post header --------------------------------------- */
 
 
-.single-post .post-inner { 
+.post-template .post-inner { 
 	padding: 8% 0;
 	width: 700px;
 	max-width: 84%;
 	margin: 0 auto;
 }
 
-.single-post .post-header { margin-bottom: 6%; }
+.post-template .post-header { margin-bottom: 6%; }
 
-.single-post .post-date {
+.post-template .post-date {
 	font-size: 0.9em;
 	font-weight: 700;
 	color: #999;
 	margin-bottom: 10px;
 }
 
-.single-post .post-date a { color: #999; }
-.single-post .post-date a:hover { color: #ca2017; }
+.post-template .post-date a { color: #999; }
+.post-template .post-date a:hover { color: #ca2017; }
 
-.single-post .post-date .sep {
+.post-template .post-date .sep {
 	margin: 0 10px;
 	font-weight: 400;
 	color: #ddd;
 }
 
-.single-post .post-title { font-size: 2.5em; }
+.post-template .post-title { font-size: 2.5em; }
 
 
 /* Page links --------------------------------------- */
@@ -2880,9 +2880,9 @@ img#wpstats { display: none; }
 	
 	/* post formats */
 	
-	.single-post .post-quote blockquote { font-size: 1.6em; }
+	.post-template .post-quote blockquote { font-size: 1.6em; }
 	
-	.single-post .post-link p { font-size: 1.6em; }
+	.post-template .post-link p { font-size: 1.6em; }
 	
 	
 }
@@ -2958,7 +2958,7 @@ img#wpstats { display: none; }
 	
 	/* single post */
 	
-	.single-post .post-title { font-size: 1.8em; }
+	.post-template .post-title { font-size: 1.8em; }
 	
 	.page-links { font-size: 0.9rem; }
 	
@@ -2966,18 +2966,18 @@ img#wpstats { display: none; }
 	
 	/* post formats */
 	
-	.single-post .post-quote blockquote { font-size: 1.25em; }
+	.post-template .post-quote blockquote { font-size: 1.25em; }
 	
-	.single-post .post-quote cite { 
+	.post-template .post-quote cite { 
 		margin-top: 20px; 
 		font-size: 14px;
 	}
 	
-	.single-post .post-link p { font-size: 1.25em; }
+	.post-template .post-link p { font-size: 1.25em; }
 	
-	.single-post .flex-direction-nav { margin-top: -30px; }
+	.post-template .flex-direction-nav { margin-top: -30px; }
 	
-	.single-post .flex-direction-nav a { height: 60px; }
+	.post-template .flex-direction-nav a { height: 60px; }
 	
 	/* post content */
 	
