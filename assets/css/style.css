@@ -899,8 +899,15 @@ a .post-icon img {
 	bottom: -2px;
 }
 
+.posts .post-meta-readtime .genericon {
+    position: relative;
+    bottom: -2px;
+}
+
 .posts .post-meta-date { float: left; }
 .posts .post-meta-comments { float: right; }
+
+.posts .post-meta-readtime { float: right; }
 
 .posts .post-meta a { color: #999; }
 

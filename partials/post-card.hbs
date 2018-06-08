@@ -28,10 +28,16 @@
             <p class="post-excerpt">{{excerpt characters="200"}}...</p>
             <div class="post-meta">
                 <a class="post-meta-date" href="{{url}}" title="{{title}}">
-                    <div class="genericon genericon-time"></div>
+                    <div class="genericon genericon-day"></div>
                     {{date published_at format="MMMM DD, YYYY"}}</a>
-                <a class="post-meta-comments" href="{{url}}/#comments" title="Comments to {{title}}">
-                    <div class="genericon genericon-comment"></div></a>
+                <a class="post-meta-readtime" href="{{url}}" title="{{title}}">
+                    <div class="genericon genericon-time"></div>
+                    {{reading_time}}
+                </a>
+
+                <!--<a class="post-meta-comments" href="{{url}}/#comments" title="Comments to {{title}}">-->
+                    <!--<div class="genericon genericon-comment"></div>-->
+                <!--</a>-->
                 <div class="clear"></div>
             </div>
         </div><!-- .post-inner -->
