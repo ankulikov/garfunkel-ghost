@@ -49,7 +49,7 @@
                     <div class="post-inner">
 
                         <div class="post-header">
-
+                            <p class="post-date">{{date published_at format="MMMM DD, YYYY"}}</p>
                             <h1 class="post-title">{{title}}</h1>
 
                         </div><!-- .post-header -->
@@ -106,7 +106,7 @@
         <script>
             var postCoverCaptionRef = $("#post-cover-caption");
             if (postCoverCaptionRef.length) {
-                $("#media-caption-element").text(postCoverCaptionRef.text())
+                $("#media-caption-element").text(postCoverCaptionRef.val())
             }
         </script>
 {{/contentFor}}
