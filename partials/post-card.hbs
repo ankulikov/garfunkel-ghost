@@ -3,13 +3,13 @@
          <pre style="display: none" class="post-props" id="post-props-{{id}}">
              {{codeinjection_head}}
          </pre>
-        <div class="featured-media" id="featured-media-{{id}}">
-            {{#if feature_image}}
-                <a href="{{url}}" rel="bookmark" title="{{title}}">
-                    <img src="{{img_url feature_image}}">
-                </a>
-            {{/if}}
-        </div><!-- .featured-media -->
+        {{#if feature_image}}
+            {{> "post-card-header-image"}}
+        {{else has tag ="#video"}}
+            {{> "post-card-header-video"}}
+        {{else has tag ="#quote"}}
+            {{> "post-card-header-quote"}}
+        {{/if}}
 
 
         {{#if featured}}

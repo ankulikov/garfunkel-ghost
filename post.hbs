@@ -8,21 +8,25 @@
 
             <div class="content">
                 <div class="post">
-
                     <!--<?php if ( has_post_thumbnail() ) : ?>-->
+                    {{#if feature_image}}
+                        {{> "post-header-image"}}
+                    {{else has tag ="#video"}}
+                        {{> "post-header-video"}}
+                    {{else has tag ="#quote"}}
+                        {{> "post-header-quote"}}
+                    {{/if}}
 
-
-                    <div class="featured-media">
-                        {{#if feature_image}}
-                            <!--<a href="{{url}}" rel="bookmark" title="{{title}}">-->
-                            <img src="{{img_url feature_image}}">
-                            <!--</a>-->
-                            <div class="media-caption-container">
-                                <p class="media-caption" id="media-caption-element">
-                                    <!--fill this value with script--></p>
-                            </div>
-                        {{/if}}
-                    </div><!-- .featured-media -->
+                    <!--{{#if feature_image}}-->
+                        <!--&lt;!&ndash;<a href="{{url}}" rel="bookmark" title="{{title}}">&ndash;&gt;-->
+                        <!--<img src="{{img_url feature_image}}">-->
+                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                        <!--<div class="media-caption-container">-->
+                            <!--<p class="media-caption" id="media-caption-element">-->
+                                <!--&lt;!&ndash;fill this value with script&ndash;&gt;</p>-->
+                        <!--</div>-->
+                    <!--{{/if}}-->
+                    <!-- .featured-media -->
 
 
                     <!--<div class="featured-media">-->
