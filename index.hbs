@@ -67,6 +67,10 @@ into the {body} of the default.hbs template --}}
                     if (props["video"]) {
                         $('#featured-media-' + id).append('<iframe width="700" height="394" src="' +
                                 props["video"] + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+                    } else if (props["quoteText"]) {
+                        var author = props["quoteAuthor"];
+                        $('#post-quote-' + id + ' blockquote').html(props["quoteText"] +
+                                (author ? '<cite>' + author + '</cite>' : ""))
                     }
                 }
             }

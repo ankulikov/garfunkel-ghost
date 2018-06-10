@@ -119,6 +119,10 @@
                     if (mediaCaptionElement) {
                         mediaCaptionElement.text(postProps["imgCaption"])
                     }
+                } else if (postProps["quoteText"]) {
+                    var author = postProps["quoteAuthor"];
+                    $('.post-quote blockquote').html(postProps["quoteText"] +
+                            (author ? '<cite>' + author + '</cite>' : ""))
                 }
                 $(window).resize();
             }
