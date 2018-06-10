@@ -32,7 +32,6 @@
                     <div class="post-meta bottom">
 
                         <div class="tab-selector">
-
                             <ul>
 
                                 <li>
@@ -140,6 +139,24 @@
                             </div>
                         </div>
                     </div>
+                    <div class="post-nav-fixed">
+
+                        {{#prev_post}}
+                            <a class="post-nav-prev" title="Previous post: {{title}}"
+                               href="{{url}}">
+                                <span class="hidden">Previous post</span>
+                                <span class="arrow">&laquo;</span>
+                            </a>
+                        {{/prev_post}}
+                        {{#next_post}}
+                            <a class="post-nav-next" title="Next post: {{title}}"
+                               href="{{url}}">
+                                <span class="hidden">Next post</span>
+                                <span class="arrow">&raquo;</span>
+                            </a>
+                        {{/next_post}}
+                        <div class="clear"></div>
+                    </div><!-- .post-nav -->
                 </div>
             </div>
         </div>
