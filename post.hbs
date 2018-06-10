@@ -1,11 +1,8 @@
 {{!< default}}
 
 {{#post}}
-
     <div class="wrapper">
-
         <div class="wrapper-inner section-inner thin">
-
             <div class="content">
                 <div class="post">
                     <!--<?php if ( has_post_thumbnail() ) : ?>-->
@@ -17,40 +14,6 @@
                         {{> "post-header-quote"}}
                     {{/if}}
 
-                    <!--{{#if feature_image}}-->
-                        <!--&lt;!&ndash;<a href="{{url}}" rel="bookmark" title="{{title}}">&ndash;&gt;-->
-                        <!--<img src="{{img_url feature_image}}">-->
-                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
-                        <!--<div class="media-caption-container">-->
-                            <!--<p class="media-caption" id="media-caption-element">-->
-                                <!--&lt;!&ndash;fill this value with script&ndash;&gt;</p>-->
-                        <!--</div>-->
-                    <!--{{/if}}-->
-                    <!-- .featured-media -->
-
-
-                    <!--<div class="featured-media">-->
-
-                    <!--<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">-->
-
-                    <!--<?php the_post_thumbnail( 'post-image' ); ?>-->
-
-                    <!--<?php if ( ! empty( get_post( get_post_thumbnail_id() )->post_excerpt ) ) : ?>-->
-
-                    <!--<div class="media-caption-container">-->
-
-                    <!--<p class="media-caption"><?php echo get_post( get_post_thumbnail_id() )->post_excerpt; ?></p>-->
-
-                    <!--</div>-->
-
-                    <!--<?php endif; ?>-->
-
-                    <!--</a>-->
-
-                    <!--</div>&lt;!&ndash; .featured-media &ndash;&gt;-->
-
-                    <!--<?php endif; ?>-->
-
                     <div class="post-inner">
 
                         <div class="post-header">
@@ -60,49 +23,131 @@
                         </div><!-- .post-header -->
 
                         <div class="post-content">
-
                             {{content}}
                             <div class="clear"></div>
-                            <!--<?php the_content(); ?>-->
-                            <!--<?php edit_post_link( __( 'Edit', 'garfunkel' ) . ' &rarr;', '<div class="clear"></div>'); ?>-->
-
-                        </div><!-- .post-content -->
-
+                        </div>
                         <div class="clear"></div>
-
                     </div><!-- .post-inner -->
 
-                    <!--<?php if ( comments_open() ) : ?>-->
+                    <div class="post-meta bottom">
 
-                    <div class="comments-page-container">
+                        <div class="tab-selector">
 
-                        <div class="comments-page-container-inner">
+                            <ul>
 
-                            <!--<?php comments_template( '', true ); ?>-->
+                                <li>
+                                    <a class="active tab-comments-toggle" href="#">
+                                        <div class="genericon genericon-comment"></div>
+                                        <span>Comments</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="tab-post-meta-toggle" href="#">
+                                        <div class="genericon genericon-summary"></div>
+                                        <span>Post info</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="tab-author-meta-toggle" href="#">
+                                        <div class="genericon genericon-user"></div>
+                                        <span>Author info</span>
+                                    </a>
+                                </li>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                        <div class="post-meta-tabs">
+                            <div class="post-meta-tabs-inner">
+                                <div class="tab-post-meta tab">
+                                    <ul class="post-info-items fright">
+                                        <li>
+                                            <div class="genericon genericon-user"></div>
+                                            {{#author}}
+                                                <a href="{{url}}">{{name}}</a>
+                                            {{/author}}
+                                        </li>
+                                        <li>
+                                            <div class="genericon genericon-time"></div>
+                                            <a href="{{url}}" title="{{title}}">
+                                                {{date published_at format="MMMM DD, YYYY"}}
+                                            </a>
+                                        </li>
+                                        {{#if primary_tag}}
+                                            {{#primary_tag}}
+                                                <li>
+                                                    <div class="genericon genericon-category"></div>
+                                                    <a href="{{url}}">{{name}}</a>
+                                                </li>
+                                            {{/primary_tag}}
+                                        {{/if}}
+                                        {{#has tag="count:>1"}}
+                                            <li>
+                                                <div class="genericon genericon-tag"></div>
+                                                {{tags from="2" visibility="all"}}
+                                            </li>
+                                        {{/has}}
+                                    </ul>
+                                    <div class="post-nav fleft">
+                                        {{#prev_post}}
+                                            <a class="post-nav-prev" title="Previous post: {{title}}"
+                                               href="{{url}}">
+                                                <p>Previous post</p>
+                                                <h4>{{title}}</h4>
+                                            </a>
+                                        {{/prev_post}}
+                                        {{#next_post}}
+                                            <a class="post-nav-next" title="Next post: {{title}}"
+                                               href="{{url}}">
+                                                <p>Next post</p>
+                                                <h4>{{title}}</h4>
+                                            </a>
+                                        {{/next_post}}
+                                    </div>
 
-                        </div><!-- .comments-page-container-inner -->
+                                    <div class="clear"></div>
 
-                    </div><!-- .comments-page-container -->
+                                </div><!-- .tab-post-meta -->
+                                <div class="tab-author-meta tab">
+                                    {{#author}}
+                                        {{#if profile_image}}
+                                            <a href="{{url}}" class="author-avatar">
+                                                <img src="{{profile_image}}" alt="{{name}}'s Picture"
+                                                     class="avatar avatar-256 photo"/>
+                                            </a>
+                                        {{/if}}
 
-                    <!--<?php endif; ?>-->
+                                        <div class="author-meta-inner">
 
-                    <!--<?php get_sidebar(); ?>-->
+                                            <h3 class="author-name"><a href="{{url}}">{{name}}</a></h3>
 
-                </div><!-- .post -->
+                                            <p class="author-location">
+                                                {{location}}
+                                            </p>
+                                            {{#if bio}}
+                                                <div class="author-description">
+                                                    {{bio}}
+                                                </div>
+                                            {{/if}}
 
-                <!--<?php endwhile; else: ?>-->
+                                        </div>
+                                    {{/author}}
+                                </div><!-- .author-meta-inner -->
+                                <div class="tab-comments tab">
+                                    <div class="comments">
+                                        External comments
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                <!--<p><?php _e( "We couldn't find any posts that matched your query. Please try again.", "garfunkel" ); ?></p>-->
-
-                <!--<?php endif; ?>-->
-
-                <div class="clear"></div>
-
-            </div><!-- .content -->
-
-        </div><!-- .section-inner -->
+        <div class="clear"></div>
 
     </div><!-- .wrapper -->
+
 
 
 {{/post}}
