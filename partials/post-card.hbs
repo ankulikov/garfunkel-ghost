@@ -1,13 +1,16 @@
 <div class="post-container">
     <div id="post-{{id}}" class="{{post_class}}">
-        {{#if feature_image}}
-            <div class="featured-media">
+         <pre style="display: none" class="post-props" id="post-props-{{id}}">
+             {{codeinjection_head}}
+         </pre>
+        <div class="featured-media" id="featured-media-{{id}}">
+            {{#if feature_image}}
                 <a href="{{url}}" rel="bookmark" title="{{title}}">
                     <img src="{{img_url feature_image}}">
                 </a>
+            {{/if}}
+        </div><!-- .featured-media -->
 
-            </div><!-- .featured-media -->
-        {{/if}}
 
         {{#if featured}}
             <div class="is-sticky">
@@ -36,7 +39,7 @@
                 </a>
 
                 <!--<a class="post-meta-comments" href="{{url}}/#comments" title="Comments to {{title}}">-->
-                    <!--<div class="genericon genericon-comment"></div>-->
+                <!--<div class="genericon genericon-comment"></div>-->
                 <!--</a>-->
                 <div class="clear"></div>
             </div>

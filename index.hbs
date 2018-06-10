@@ -29,6 +29,7 @@ into the {body} of the default.hbs template --}}
 
                 <div class="posts" id="posts">
                     {{#foreach posts}}
+
                     {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
                         {{> "post-card"}}
                     {{/foreach}}
@@ -56,3 +57,22 @@ into the {body} of the default.hbs template --}}
 
 </div><!-- .wrapper -->
 
+{{#contentFor "scripts"}}
+    <script>
+        jQuery(document).ready(function ($) {
+            extractPostProps($);
+            for (var id in allPostProps) {
+                if (allPostProps[id]) {
+                    var props = allPostProps[id];
+                    if (props["video"]) {
+                        $('#featured-media-' + id).append('<iframe width="700" height="394" src="' +
+                                props["video"] + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+                    }
+                }
+            }
+            $(window).resize();
+            // $('#featured-media-5b1bd54925ff4e31b472aeef').append('').trigger('resize');
+            // $(window).trigger('resize');
+        });
+    </script>
+{{/contentFor}}

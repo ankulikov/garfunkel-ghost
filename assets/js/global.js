@@ -129,4 +129,23 @@ jQuery(document).ready(function($) {
 
 	});
 
+
+
 });
+
+var allPostProps = {};
+var EXTRACT_SCRIPT_REGEXP = /<script id=['"]props['"][\s\S]*?>([\s\S]*?)<\/script>/i;
+
+function extractPostProps($) {
+	var postPropsElements = $('.post-props');
+	for (var i=0; i< postPropsElements.length;i++) {
+		var post = postPropsElements[i];
+        var id = post.id.substring("post-props-".length);
+		var scriptTagText = post.textContent;
+		if (scriptTagText != null && scriptTagText !== "" &&
+			EXTRACT_SCRIPT_REGEXP.test(scriptTagText)) {
+            var scriptText = scriptTagText.match(EXTRACT_SCRIPT_REGEXP)[1];
+            allPostProps[id] = eval('"use strict";\n' + scriptText + '\npostProps;')
+		}
+	}
+}

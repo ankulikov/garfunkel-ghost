@@ -11,8 +11,9 @@
 
                     <!--<?php if ( has_post_thumbnail() ) : ?>-->
 
-                    {{#if feature_image}}
-                        <div class="featured-media">
+
+                    <div class="featured-media">
+                        {{#if feature_image}}
                             <!--<a href="{{url}}" rel="bookmark" title="{{title}}">-->
                             <img src="{{img_url feature_image}}">
                             <!--</a>-->
@@ -20,9 +21,9 @@
                                 <p class="media-caption" id="media-caption-element">
                                     <!--fill this value with script--></p>
                             </div>
+                        {{/if}}
+                    </div><!-- .featured-media -->
 
-                        </div><!-- .featured-media -->
-                    {{/if}}
 
                     <!--<div class="featured-media">-->
 
@@ -103,10 +104,20 @@
 {{/post}}
 
 {{#contentFor "scripts"}}
-        <script>
-            var postCoverCaptionRef = $("#post-cover-caption");
-            if (postCoverCaptionRef.length) {
-                $("#media-caption-element").text(postCoverCaptionRef.val())
+    <script>
+        jQuery(document).ready(function ($) {
+            if (postProps) {
+                if (postProps["video"]) {
+                    $('.featured-media').append('<iframe width="700" height="394" src="' +
+                            postProps["video"] + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+                } else if (postProps["imgCaption"]) {
+                    var mediaCaptionElement = $('#media-caption-element');
+                    if (mediaCaptionElement) {
+                        mediaCaptionElement.text(postProps["imgCaption"])
+                    }
+                }
+                $(window).resize();
             }
-        </script>
+        });
+    </script>
 {{/contentFor}}
