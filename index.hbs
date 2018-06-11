@@ -7,11 +7,18 @@ into the {body} of the default.hbs template --}}
 
     <div class="wrapper-inner section-inner">
 
-        {{#is "paged"}}
-            <div class="page-title">
+
+        <div class="page-title">
+            {{#is "paged"}}
                 <h5>page {{pagination.page}} of {{pagination.pages}}</h5>
-            </div>
-        {{/is}}
+            {{/is}}
+            {{#is "tag"}}
+                <h5>tag: {{tag.name}}</h5>
+            {{/is}}
+            {{#is "author"}}
+                <h5>tag: {{author.name}}</h5>
+            {{/is}}
+        </div>
 
         <div class="clear"></div>
 
