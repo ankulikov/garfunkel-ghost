@@ -7,19 +7,11 @@ into the {body} of the default.hbs template --}}
 
     <div class="wrapper-inner section-inner">
 
-        <!--<?php-->
-        <!--$paged = get_query_var( 'paged' ) ?: 1;-->
-        <!--$total_post_count = wp_count_posts();-->
-        <!--$published_post_count = $total_post_count->publish;-->
-        <!--$total_pages = ceil( $published_post_count / $posts_per_page );-->
-
-        <!--if ( 1 < $paged ) : ?>-->
-        <!--TODO: https://themes.ghost.org/docs/pagination-->
-
-        <div class="page-title">
-            <h5>page N of N</h5>
-            <!--<h5><?php printf( __( 'Page %s of %s', 'garfunkel' ), $paged, $wp_query->max_num_pages ); ?></h5>-->
-        </div>
+        {{#is "paged"}}
+            <div class="page-title">
+                <h5>page {{pagination.page}} of {{pagination.pages}}</h5>
+            </div>
+        {{/is}}
 
         <div class="clear"></div>
 
@@ -29,7 +21,6 @@ into the {body} of the default.hbs template --}}
 
                 <div class="posts" id="posts">
                     {{#foreach posts}}
-
                     {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
                         {{> "post-card"}}
                     {{/foreach}}
@@ -40,19 +31,17 @@ into the {body} of the default.hbs template --}}
 
         <!--<?php if ( $wp_query->max_num_pages > 1 ) : ?>-->
 
-        {{pagination}}
-        <!--<div class="archive-nav section-inner">-->
-
-        <!--<?php echo get_next_posts_link( '&larr; ' . __( 'Older posts', 'garfunkel' ) ); ?>-->
-
-        <!--<?php echo get_previous_posts_link( __( 'Newer posts', 'garfunkel' ) . ' &rarr;' ); ?>-->
-
-        <!--<div class="clear"></div>-->
-
-        <!--</div>&lt;!&ndash; .archive-nav &ndash;&gt;-->
-
-        <!--<?php endif; ?>-->
-
+        <div class="archive-nav section-inner">
+            {{#if pagination.next}}
+                <a href="{{page_url pagination.next}}" class="post-nav-older fleft">← {{t "Older posts"}}</a>
+            {{/if}}
+            {{#if pagination.prev}}
+                <a href="{{page_url pagination.prev}}" class="post-nav-newer fright">{{t "Newer posts"}} →</a>
+            {{/if}}
+            <!--<span class="page-number" style="display: block; text-align: center">Page {{pagination.page}}-->
+            <!--of {{pagination.pages}}</span>-->
+            <div class="clear"></div>
+        </div>
     </div><!-- .wrapper-inner -->
 
 </div><!-- .wrapper -->
