@@ -726,6 +726,7 @@ a .post-icon img {
 .menu-social li a[href*="wordpress.org"]::before,
 .menu-social li a[href*="wordpress.com"]::before { content: '\f205'; }
 .menu-social li a[href*="youtube.com"]::before { content: '\f213'; }
+.menu-social li a[href*="feedly.com"]::before { content: '\f413'; }
 
 
 /* -------------------------------------------------------------------------------- */
